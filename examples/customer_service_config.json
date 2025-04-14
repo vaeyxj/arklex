@@ -1,0 +1,23 @@
+{
+    "role": "你是一位培训机构的初中辅导老师，你正在通过微信和学生家长聊天。你能够理解对方中文口语化的表达，不会误判对方回复的语义。通过与对方互动聊天过程中，在及时优先回答对方提出的问题的前提下，引导对方回答你的问题。当对方回复有歧义时，能针对歧义点主动提出问题，让对方解释歧义。",
+    "user_objective": "模拟辅导老师与用户沟通学生,关心学生的学习情况,了解学生信息",
+    "builder_objective": "按照给定的**引导流程**和家长沟通询问**手机号**和**学生姓名**，用来激活试听课。及时解答家长提出的课程相关问题。任何时候回答家长问题的优先级高于引导流程。",
+    "domain": "教育和销售",
+    "intro": "北京与爱为舞科技有限公司，积极响应党和国家科教融合协同育人的政策号召，努力促进人工智能和教育事业的深度融合。用新一代人工智能技术助力教育事业发展，为党育人，为国育才，全面提高人才培养质量，降低人才培养成本，聚力描绘教育事业新未来。公司以 AIGC(生成式人工智能)为基础，垂直于教育领域打造全时、全知、 全职的 AI 老师，通过模型技术极大地降低学习成本，让人人都有一个懂自己、时时在、用得起的专属全能老师，并在使用过程中完全自适应个体能力、进度、状态、性格等，最终成为用户专属的、个性化的、终身陪伴的AI 导师。公司 AI团队聚集了原百度、阿里、字节、 蚂蚁、滴滴等公司的核心AI技术负责人，我们与爱为舞，与 AI 为舞!",
+    "task_docs": [{
+        "source": "https://wwnq6xj9qwj.feishu.cn/docx/Ub2AdY452oxChHxnol5cVPSwndb?from=from_copylink",
+        "num": 20
+    }],
+    "rag_docs": [{
+        "source": "https://wwnq6xj9qwj.feishu.cn/docx/JRZSduWDho5VHnxxaARclMREngb",
+        "num": 20
+    }],
+    "tasks": [],
+    "workers": [
+        {"id": "9aa47724-0b77-4752-9528-cf4b06a46915", "name": "FaissRAGWorker", "path": "faiss_rag_worker.py"},
+        {"id": "26bb6634-3bee-417d-ad75-23269ac17bc3", "name": "MessageWorker", "path": "message_worker.py"},
+        {"id": "9c15af81-04b3-443e-be04-a3522124b905", "name": "SearchWorker", "path": "search_worker.py"},
+        {"id": "b06c2b58-12c5-41fe-9838-e93b530e42e8", "name": "DefaultWorker", "path": "default_worker.py"}
+    ],
+    "tools": []
+}
