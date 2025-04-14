@@ -56,7 +56,7 @@ class NLUModelAPI ():
                 temperature=0.7,
                 top_p=1,
                 api_key=os.environ["DEEPSEEK_API_KEY"],
-                base_url="https://api.deepseek.com/v1",
+                base_url=os.environ["DEEPSEEK_API_URL"],
             )
             print(res)
             response = res.choices[0].message.content

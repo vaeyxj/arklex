@@ -16,9 +16,9 @@ from openai import OpenAI
 from fastapi import FastAPI, Response
 
 from arklex.orchestrator.orchestrator import AgentOrg
-from create import API_PORT
 from arklex.utils.model_config import MODEL
 
+API_PORT = "55135"
 NLUAPI_ADDR = f"http://localhost:{API_PORT}/nlu"
 SLOTFILLAPI_ADDR = f"http://localhost:{API_PORT}/slotfill"
 

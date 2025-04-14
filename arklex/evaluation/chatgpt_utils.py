@@ -13,6 +13,11 @@ client = OpenAI(
 )
 
 def chatgpt_chatbot(messages, model=MODEL["model_type_or_path"]):
+    if MODEL["llm_provider"] == "deepseek":
+        client = OpenAI(
+            api_key=os.environ["DEEPSEEK_API_KEY"],
+            base_url=os.environ["DEEPSEEK_API_URL"],
+        )
     completion = client.chat.completions.create(
         model=model,
         messages=messages,
