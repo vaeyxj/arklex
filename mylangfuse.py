@@ -1,14 +1,17 @@
 import os
 from langfuse.decorators import observe
-from langfuse.openai import openai  # OpenAI integration
 from openai import OpenAI
+from pydan.logsmartold import output
+
 from arklex.utils.model_config import MODEL
 from dotenv import load_dotenv
+from langfuse.decorators import langfuse_context
 
 load_dotenv()
 
 @observe
 def chatgpt_chatbot(messages, model=MODEL["model_type_or_path"]):
+    story()
     if MODEL["llm_provider"] == "deepseek":
         client = OpenAI(
             api_key=os.environ["DEEPSEEK_API_KEY"],
@@ -22,16 +25,9 @@ def chatgpt_chatbot(messages, model=MODEL["model_type_or_path"]):
     answer = completion.choices[0].message.content.strip()
     return answer
 
-@observe()
+@observe
 def story():
-    return openai.chat.completions.create(
-        model="gpt-4o",
-        messages=[
-            {"role": "system", "content": "You are a great storyteller."},
-            {"role": "user", "content": "Once upon a time in a galaxy far, far away..."}
-        ],
-    ).choices[0].message.content
-
+    print("story")
 
 
 if __name__ == "__main__":
